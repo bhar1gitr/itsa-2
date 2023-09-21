@@ -14,7 +14,6 @@ import {
   Navigate
 } from "react-router-dom";
 import "./style.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Contact from "./components/Contact/Contact";
 
 
