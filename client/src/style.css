@@ -1,46 +1,4 @@
-/* html {
-  --section-background-color: linear-gradient(
-    to bottom left,
-    rgba(17, 16, 16, 0.582),
-    rgba(12, 8, 24, 0.904)
-  );
 
-  --image-gradient: linear-gradient(
-    to bottom left,
-    rgba(17, 16, 16, 0.678),
-    rgba(12, 10, 22, 0.863)
-  );
-
-  --imp-text-color: black;
-}
-
-
-.floating { 
-  animation-name: floating;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  margin-left: 30px;
-  margin-top: 5px;
-}
-
-@keyframes floating {
-  0% { transform: translate(0,  0px); }
-  50%  { transform: translate(0, 15px); }
-  100%   { transform: translate(0, -0px); }   
-}
-
-.black {
-  color: var(--imp-text-color) !important;
-}
-
-button:focus {
-  box-shadow: none !important;
-}
-
-::-webkit-scrollbar {
-  width: 7px;
-}
 
 /* Track */
 ::-webkit-scrollbar-track {
