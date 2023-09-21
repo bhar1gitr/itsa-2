@@ -25,7 +25,7 @@ const Contact = () => {
     console.log('Form submitted:', formData);
     
   axios
-  .post('http://localhost:4000/contact', formData, {
+  .post(`${process.env.REACT_APP_BACKEND_ADDRESS}/contact`, formData, {
     headers: {
       'Content-Type': 'application/json', // Set the content type to JSON
     },
