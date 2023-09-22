@@ -7,6 +7,7 @@ import { Container } from '@mui/material';
 import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import CircularProgress from '@mui/joy/CircularProgress';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,15 @@ const Contact = () => {
     message: '',
   });
 
+  const initialFormData = {
+    name: '',
+    email: '',
+    message: '',
+  };
+
+
+  const [loading,setLoading] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -22,22 +32,25 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     console.log('Form submitted:', formData);
     
   axios
-  .post(`${process.env.REACT_APP_BACKEND_ADDRESS}/contact`, formData, {
+  .post('http://localhost:4000/contact', formData, {
     headers: {
       'Content-Type': 'application/json', // Set the content type to JSON
     },
   })
   .then((response) => {
-    console.log('Response data:', response); // Handle the response data
-    // alert('Request successful! Response: ' + JSON.stringify(response.data));
+    console.log('Response data:', response); 
     toast.success('Message Sent!');
   })
   .catch((error) => {
-    console.error('Axios error:', error); // Handle any errors that occurred during the request
+    console.error('Axios error:', error); 
     toast.error('Error: ' + error.message);
+  }).finally(() => {
+    setLoading(false); // Stop loading when the request is complete (success or error)
+    setFormData(initialFormData); // Reset the form
   });
 
   };
@@ -89,6 +102,7 @@ const Contact = () => {
       </Grid>
       <Button style={{marginTop:"20px"}} type="submit" variant="contained" color="primary">
         Submit
+        { loading && <CircularProgress size='sm' style={{color:'white',marginLeft:'5px'}}/> }
       </Button>
     </form>
    </Container>
