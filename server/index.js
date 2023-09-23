@@ -22,7 +22,7 @@ app.use(cors());
 app.use(express.json());
 
 // connection to database
-conn();
+//conn();
 // cloudinary.uploader.upload("C:/Users/bharat sharma/Downloads/STU62d65d6ab2d12165821786_page-0001.jpg", function(error, result) {
 //   if (error) {
 //     console.error(error);
